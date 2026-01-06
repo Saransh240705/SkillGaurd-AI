@@ -371,24 +371,5 @@ Create accounts for each role:
 |----------|-------------|----------|
 | `VITE_API_URL` | Backend API URL | No (default: /api) |
 
-## 🎓 For Microsoft Imagine Cup 2026
 
-This application demonstrates:
-- **AI Integration**: Production-ready Azure OpenAI integration
-- **Scalable Architecture**: Clean separation of concerns, modular design
-- **Real-world Application**: Solves actual problem (skill verification)
-- **Full-Stack Expertise**: Complete MERN implementation
-- **Production Readiness**: Error handling, validation, security
-
-## 📄 License
-
-This project is created for Microsoft Imagine Cup 2026.
-
-## 🤝 Contributing
-
-This is a competition project. For questions or issues, please refer to the project documentation.
-
----
-
-**Built with ❤️ for Microsoft Imagine Cup 2026**
 
