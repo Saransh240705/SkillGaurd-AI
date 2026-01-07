@@ -29,17 +29,25 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-dark-bg py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <div className="text-center">
+          <div className="flex justify-center mb-4">
+            <div className="w-12 h-12 bg-primary-600 rounded flex items-center justify-center">
+              <span className="text-white font-bold text-xl">&lt;/&gt;</span>
+            </div>
+          </div>
+          <h2 className="text-3xl font-extrabold text-white">
             Sign in to SkillBridge AI
           </h2>
+          <p className="mt-2 text-sm text-dark-text-secondary">
+            Enter your credentials to access your account
+          </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
+          <div className="space-y-4">
             <div>
-              <label htmlFor="email" className="sr-only">
+              <label htmlFor="email" className="block text-sm font-medium text-dark-text-secondary mb-2">
                 Email address
               </label>
               <input
@@ -47,14 +55,14 @@ const Login = () => {
                 name="email"
                 type="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
+                className="appearance-none relative block w-full px-4 py-3 bg-dark-surface border border-dark-border placeholder-dark-text-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent sm:text-sm"
+                placeholder="you@example.com"
                 value={formData.email}
                 onChange={handleChange}
               />
             </div>
             <div>
-              <label htmlFor="password" className="sr-only">
+              <label htmlFor="password" className="block text-sm font-medium text-dark-text-secondary mb-2">
                 Password
               </label>
               <input
@@ -62,8 +70,8 @@ const Login = () => {
                 name="password"
                 type="password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
+                className="appearance-none relative block w-full px-4 py-3 bg-dark-surface border border-dark-border placeholder-dark-text-secondary text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent sm:text-sm"
+                placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -74,7 +82,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 transition"
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
@@ -83,7 +91,7 @@ const Login = () => {
           <div className="text-center">
             <Link
               to="/register"
-              className="text-primary-600 hover:text-primary-500"
+              className="text-primary-400 hover:text-primary-300 text-sm"
             >
               Don't have an account? Register
             </Link>
@@ -95,4 +103,3 @@ const Login = () => {
 };
 
 export default Login;
-

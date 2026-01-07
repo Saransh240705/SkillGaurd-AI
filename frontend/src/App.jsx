@@ -15,11 +15,12 @@ import ProviderDashboard from './pages/ProviderDashboard';
 import RecruiterDashboard from './pages/RecruiterDashboard';
 import RecruiterSearch from './pages/RecruiterSearch';
 import StudentProfile from './pages/StudentProfile';
+import JobPosting from './pages/JobPosting';
 
 function App() {
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-dark-bg">
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -91,6 +92,14 @@ function App() {
             element={
               <PrivateRoute allowedRoles={['recruiter']}>
                 <StudentProfile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/recruiter/jobs/new"
+            element={
+              <PrivateRoute allowedRoles={['recruiter']}>
+                <JobPosting />
               </PrivateRoute>
             }
           />
