@@ -1,36 +1,35 @@
-import express from 'express';
-import { body } from 'express-validator';
+import express from "express";
+import { body } from "express-validator";
 import {
   register,
   login,
   getMe,
   updateProfile,
-} from '../controllers/authController.js';
-import { protect } from '../middleware/auth.js';
+} from "../controllers/authController.js";
+import { protect } from "../middleware/auth.js";
 
 const router = express.Router();
 
 // Validation rules
 const registerValidation = [
-  body('name').trim().notEmpty().withMessage('Name is required'),
-  body('email').isEmail().withMessage('Please provide a valid email'),
-  body('password')
+  body("name").trim().notEmpty().withMessage("Name is required"),
+  body("email").isEmail().withMessage("Please provide a valid email"),
+  body("password")
     .isLength({ min: 6 })
-    .withMessage('Password must be at least 6 characters'),
-  body('role')
-    .isIn(['student', 'provider', 'recruiter'])
-    .withMessage('Role must be student, provider, or recruiter'),
+    .withMessage("Password must be at least 6 characters"),
+  body("role")
+    .isIn(["student", "provider", "recruiter", "organization"])
+    .withMessage("Role must be student, provider, recruiter, or organization"),
 ];
 
 const loginValidation = [
-  body('email').isEmail().withMessage('Please provide a valid email'),
-  body('password').notEmpty().withMessage('Password is required'),
+  body("email").isEmail().withMessage("Please provide a valid email"),
+  body("password").notEmpty().withMessage("Password is required"),
 ];
 
-router.post('/register', registerValidation, register);
-router.post('/login', loginValidation, login);
-router.get('/me', protect, getMe);
-router.put('/profile', protect, updateProfile);
+router.post("/register", registerValidation, register);
+router.post("/login", loginValidation, login);
+router.get("/me", protect, getMe);
+router.put("/profile", protect, updateProfile);
 
 export default router;
-

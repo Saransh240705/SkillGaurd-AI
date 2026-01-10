@@ -1,14 +1,21 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
+
+  // Hide navbar on pages with their own sidebar navigation
+  const hiddenRoutes = ['/dashboard', '/tasks', '/certifications', '/analytics', '/settings', '/provider/dashboard', '/recruiter/dashboard', '/recruiter/search', '/recruiter/jobs', '/recruiter/talent', '/recruiter/analytics', '/recruiter/messages', '/org'];
+  if (hiddenRoutes.some(route => location.pathname.startsWith(route))) {
+    return null;
+  }
 
   return (
     <nav className="bg-dark-surface border-b border-dark-border fixed top-0 left-0 right-0 z-50">
